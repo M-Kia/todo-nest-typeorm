@@ -5,7 +5,7 @@ import {
   MaxLength,
   MinLength,
 } from 'class-validator';
-import validation from 'src/common/validation-message';
+import validation from '../../common/validation-message';
 
 export class UserSignupDto {
   @MinLength(5, { message: validation.min })

@@ -6,7 +6,7 @@ import {
   UpdateEvent,
 } from 'typeorm';
 import { User } from './user.entity';
-import { stringToHash } from 'src/helpers/string.helpers';
+import { stringToHash } from '../helpers/string.helpers';
 
 @EventSubscriber()
 export class UserSubscriber implements EntitySubscriberInterface<User> {

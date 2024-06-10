@@ -1,0 +1,48 @@
+#Auth Controller
+### signup user
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "12344321"
+}
+
+### signin user
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "12344321"
+}
+
+### who am i
+GET http://localhost:3000/auth/whoami
+
+### signout user
+POST http://localhost:3000/auth/signout
+
+
+
+# User Controller
+
+### List all users
+GET http://localhost:3000/user
+
+### Get user with specified email
+GET http://localhost:3000/user?email=test@test.com
+
+### Get user with specified id
+GET http://localhost:3000/user/1
+
+### update user
+PATCH http://localhost:3000/user/1
+Content-Type: application/json
+
+{
+  "email": "test1@gmail.com"
+}
+
+### delete user
+DELETE http://localhost:3000/user/1

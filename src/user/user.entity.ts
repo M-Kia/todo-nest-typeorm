@@ -1,12 +1,15 @@
 import {
   Column,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   // CreateDateColumn,
   // DeleteDateColumn,
   // UpdateDateColumn,
 } from 'typeorm';
 
+import { Todo } from 'src/todo/todo.entity';
+import { Column as ColumnEntity } from 'src/column/column.entity';
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
@@ -17,6 +20,12 @@ export class User {
 
   @Column()
   password: string;
+
+  @OneToMany(() => ColumnEntity, (column) => column.owner)
+  columnList: ColumnEntity[];
+
+  @OneToMany(() => Todo, (todo) => todo.owner)
+  todoList: Todo[];
 
   // @CreateDateColumn({
   //   name: 'created_at',
@@ -38,4 +47,8 @@ export class User {
   //   comment: 'user deleted date',
   // })
   // deleted_at: Date;
+
+  constructor(user: Partial<User>) {
+    Object.assign(this, user);
+  }
 }
