@@ -21,6 +21,9 @@ export class User {
   @Column()
   password: string;
 
+  @Column({ default: false, name: 'is_admin' })
+  isAdmin: boolean;
+
   @OneToMany(() => ColumnEntity, (column) => column.owner)
   columnList: ColumnEntity[];
 

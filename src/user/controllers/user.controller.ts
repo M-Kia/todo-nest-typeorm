@@ -15,12 +15,12 @@ import { UserService } from '../services/user.service';
 import { UserUpdateDto } from '../dto/user-update.dto';
 import { Serialize } from '../../intercepters/serialize.interceptor';
 import { UserDto } from '../dto/user.dto';
-import { AuthGuard } from '../../guards/auth.guard';
 import { UserSignupDto } from '../dto/user-signup.dto';
+import { AdminGuard } from 'src/guards/admin.guard';
 
 @Controller('user')
 @Serialize(UserDto)
-@UseGuards(AuthGuard)
+@UseGuards(AdminGuard)
 export class UserController {
   constructor(private readonly service: UserService) {}
 
